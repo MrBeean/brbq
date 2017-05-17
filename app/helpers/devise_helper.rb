@@ -3,7 +3,7 @@ module DeviseHelper
     return '' if resource.errors.empty?
 
     messages = resource.errors.full_messages.map { |msg| content_tag(:li, msg) }.join
-    sentence = I18n.t('errors.messages.not_saved',
+    sentence = t('errors.messages.not_saved',
                       count: resource.errors.count,
                       resource: current_user.name)
 

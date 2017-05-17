@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.2.6'
 
 gem 'devise'
+gem 'devise-i18n'
+gem 'rails-i18n', '~> 4.0.0'
 
 # Гем, интегрирующий bootstrap
 gem 'twitter-bootstrap-rails'

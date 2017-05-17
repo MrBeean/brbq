@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   # Настройка для работы девайза при правке профиля юзера
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  before_action :set_locale
+
   # Хелпер метод, доступный во вьюхах
   helper_method :current_user_can_edit?
 
@@ -22,5 +24,13 @@ class ApplicationController < ActionController::Base
   # может править указанное событие
   def current_user_can_edit?(event)
     user_signed_in? && event.user == current_user
+  end
+
+  private
+
+  def set_locale
+    if I18n.available_locales.map(&:to_s).include?(params[:locale])
+      I18n.locale = params[:locale]
+    end
   end
 end

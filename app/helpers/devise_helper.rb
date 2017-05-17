@@ -2,10 +2,16 @@ module DeviseHelper
   def devise_error_messages!
     return '' if resource.errors.empty?
 
+    if current_user == nil
+      username = 'Товарисч'
+    else
+      username = current_user.name
+    end
+
     messages = resource.errors.full_messages.map { |msg| content_tag(:li, msg) }.join
     sentence = t('errors.messages.not_saved',
                       count: resource.errors.count,
-                      resource: current_user.name)
+                      resource: username)
 
     html = <<-HTML
     <div class="alert alert-danger alert-dismissable">

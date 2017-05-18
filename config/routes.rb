@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :events do
     # вложенный ресурс комментов
     resources :comments, only: [:create, :destroy]
+    resources :subscriptions, only: [:create, :destroy]
   end
 end

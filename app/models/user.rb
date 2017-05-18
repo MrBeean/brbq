@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
   # Юзер может создавать много событий
   has_many :events
+  has_many :comments
 
   # У юреза должно быть имя не длиннее 35 букв
   validates :name, presence: true, length: {maximum: 35}

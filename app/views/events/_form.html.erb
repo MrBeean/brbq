@@ -3,7 +3,7 @@
   <%= render partial: 'partials/form_errors', locals: {model: @event} %>
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div class="form-group">
         <%= f.label :title %>
         <%= f.text_field :title, class: 'form-control' %>
@@ -12,7 +12,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div class="form-group">
         <%= f.label :address %>
         <%= f.text_field :address, class: 'form-control' %>
@@ -21,7 +21,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div class="form-group">
         <%= f.label :datetime %>
         <p><%= f.datetime_select :datetime, class: 'form-control' %></p>
@@ -30,7 +30,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div class="form-group">
         <%= f.label :description %>
         <%= f.text_area :description, class: 'form-control' %>

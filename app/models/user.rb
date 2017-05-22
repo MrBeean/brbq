@@ -2,9 +2,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   # Юзер может создавать много событий
-  has_many :events
-  has_many :comments
-  has_many :subscriptions
+  has_many :events, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :subscriptions, dependent: :destroy
 
   # У юреза должно быть имя не длиннее 35 букв
   validates :name, presence: true, length: {maximum: 35}

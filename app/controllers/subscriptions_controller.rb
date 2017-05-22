@@ -63,7 +63,7 @@ class SubscriptionsController < ApplicationController
 
     if check_user_email
       redirect_to new_user_session_path, alert: I18n.t('controllers.subscriptions.user_exist')
-    else check_subscripton_email
+    elsif check_subscripton_email
       redirect_to @event, alert: I18n.t('controllers.subscriptions.email_exist')
     end
   end

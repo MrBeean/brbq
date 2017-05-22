@@ -5,6 +5,9 @@ class SubscriptionsController < ApplicationController
   # Задаем подписку, которую юзер хочет удалить
   before_action :set_subscription, only: [:destroy]
 
+  # Проверяем если текущий юзер, то просто возвращаем текущее собитие
+  before_action :self_subscription, only: [:create]
+
   def create
     # Болванка для новой подписки
     @new_subscription = @event.subscriptions.build(subscription_params)
@@ -44,5 +47,9 @@ class SubscriptionsController < ApplicationController
   def subscription_params
     # .fetch разрешает в params отсутствие ключа :subscription
     params.fetch(:subscription, {}).permit(:user_email, :user_name)
+  end
+
+  def self_subscription
+    redirect_to @event, notice: I18n.t('controllers.subscriptions.same_user') if @event.user == current_user
   end
 end

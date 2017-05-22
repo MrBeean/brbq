@@ -32,6 +32,10 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.little-buffer-both {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 
 /* Avatars for users & events */
 .img-icon, .img-icon-small {

@@ -57,14 +57,17 @@ class SubscriptionsController < ApplicationController
   end
 
   def check_email
-    new_user_email = params[:subscription][:user_email]
-    check_subscripton_email = Subscription.where(user_email: new_user_email).present?
-    check_user_email = User.where(email: new_user_email).present?
+    if current_user.blank?
+      new_user_email = params[:subscription][:user_email]
 
-    if check_user_email
-      redirect_to new_user_session_path, alert: I18n.t('controllers.subscriptions.user_exist')
-    elsif check_subscripton_email
-      redirect_to @event, alert: I18n.t('controllers.subscriptions.email_exist')
+      check_subscripton_email = Subscription.where(user_email: new_user_email).present?
+      check_user_email = User.where(email: new_user_email).present?
+
+      if check_user_email
+        redirect_to new_user_session_path, alert: I18n.t('controllers.subscriptions.user_exist')
+      elsif check_subscripton_email
+        redirect_to @event, alert: I18n.t('controllers.subscriptions.email_exist')
+      end
     end
   end
 end

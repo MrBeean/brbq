@@ -9,7 +9,7 @@ class SubscriptionsController < ApplicationController
   before_action :self_subscription, only: [:create]
 
   # Проверяем если email уже есть, то возвращаем текущее собитие
-  before_action :email_checker, only: [:create]
+  before_action :check_email, only: [:create]
 
   def create
     # Болванка для новой подписки
@@ -56,7 +56,7 @@ class SubscriptionsController < ApplicationController
     redirect_to @event, alert: I18n.t('controllers.subscriptions.same_user') if @event.user == current_user
   end
 
-  def email_checker
+  def check_email
     new_user_email = params[:subscription][:user_email]
     check_subscripton_email = Subscription.where(user_email: new_user_email).present?
     check_user_email = User.where(email: new_user_email).present?

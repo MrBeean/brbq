@@ -20,4 +20,8 @@ class Event < ActiveRecord::Base
   # Также у события должны быть заполнены место и время проведения
   validates :address, presence: true
   validates :datetime, presence: true
+
+  def visitors
+    (subscribers + [user]).uniq
+  end
 end

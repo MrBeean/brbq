@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
 
   after_commit :link_subscriptions, on: :create
 
+  # Добавляем аплоадер аватарок, чтобы заработал carrierwave
+  mount_uploader :avatar, AvatarUploader
+
   private
 
   # Задаем юзеру случайное имя, если оно пустое

@@ -17,6 +17,12 @@ gem 'jquery-rails'
 
 gem 'therubyracer'
 
+# Гем для загрузки картинок
+gem 'carrierwave'
+
+# Гем для обработки картинок
+gem 'rmagick'
+
 group :production do
   gem 'pg'
 end

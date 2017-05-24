@@ -17,11 +17,11 @@ gem 'jquery-rails'
 
 gem 'therubyracer'
 
-# Гем для загрузки картинок
 gem 'carrierwave'
-
-# Гем для обработки картинок
 gem 'rmagick'
+
+# Гем для работы carrierwave с хранилищем Amazon S3
+gem 'fog-aws'
 
 group :production do
   gem 'pg'

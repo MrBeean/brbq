@@ -20,3 +20,6 @@
 
 .DS_Store
 */.DS_Store
+
+# Uploaded Photo
+/public/uploads

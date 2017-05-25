@@ -14,8 +14,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  # TODO вернуть false перед push
-  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = false
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -47,8 +46,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: '587',
-    user_name: 'insertyouremail',
-    password: 'insertyourpassword',
+    user_name: 'gmail.com', # для девелопмент вставить почту
+    password: 'insertyourpassword', # вставить пароль от почты
     authentication: 'plain',
     enable_stattls_auto: true
   }

@@ -17,6 +17,8 @@ gem 'jquery-rails'
 
 gem 'therubyracer'
 
+gem 'figaro'
+
 gem 'carrierwave'
 gem 'rmagick'
 

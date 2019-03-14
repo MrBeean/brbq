@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails'
+gem 'rails', '~> 4.2', '>= 4.2.11.1'
 
 gem 'devise'
 gem 'devise-i18n'
